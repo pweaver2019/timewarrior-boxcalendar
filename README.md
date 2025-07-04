@@ -5,7 +5,16 @@ Times are rounded up to the nearest quarter hour and displayed as fractions.
 
 ## Installation
 
-Copy boxcalendar.py to ~/.timewarrior/extensions/boxcalendar.py, then chmod +x ~/.timewarrior/extensions/boxcalendar.py to allow it to be executable.
+Copy boxcalendar.py to your extensions directory.
+To find your extensions directory use the command timew extensions which displays your extension directory and all extensions available.
+If your directory is ~/.timewarrior/extensions/ then copy the source file there and make it executable.
+
+```
+cp boxcalendar.py ~/.timewarrior/extensions/boxcalendar.py
+chmod +x ~/.timewarrior/extensions/boxcalendar.py
+```
+
+The command timew extensions will show if if you copied it correctly
 
 If you name the report anything other than boxcalendar.py then use your new name in the examples below.
 For example, if you name it mycalendar.py then use "reports.mycalendar.weekdays" instead of "reports.boxcalendar.weekdays."
