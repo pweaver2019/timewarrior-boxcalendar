@@ -224,7 +224,11 @@ def main():
                     else:
                         colourescape[key,ground] = convert_colour(ground,colour)
 
-    if config['debug'] and config['verbose']: print(colourescape)
+    if config['debug'] and config['verbose']:
+       for key in colourescape:
+           print (f"Colour: {key}: {colourescape[key]}Example Text{colourescape['off']}")
+
+#    if config['debug'] and config['verbose']: print(colourescape)
 
 # Create a dictionary of the holidays loaded, if more than one holiday per date we create a
 # sub dictionary
