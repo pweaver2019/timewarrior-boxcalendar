@@ -210,7 +210,7 @@ def main():
     colourescape['off'] = '\033[0m'
 
 # If colour is enabled in the confuration file then load all the colours, the only colours
-# used are the ones listed above,
+# used are the ones listed above
     if config['color']:
       for key in config:
           if key.startswith('theme.colors.') or key.startswith('theme.palette'):
@@ -224,11 +224,23 @@ def main():
                     else:
                         colourescape[key,ground] = convert_colour(ground,colour)
 
+# Dump out the colours used in this theme
     if config['debug'] and config['verbose']:
+       already_shown = []
        for key in colourescape:
-           print (f"Colour: {key}: {colourescape[key]}Example Text{colourescape['off']}")
+           key2 = key[0]
+           if key2 not in already_shown:
+              if tuple((key2,'FG')) in colourescape and tuple((key2,'BG')) in colourescape:
+                  print ('Colour:',key2,'-',config[key[0]],':',colourescape[key],colourescape[tuple((key2,'BG'))],'Example Text',colourescape['off'])
+                  already_shown.append(key[0])
+              else:
+                  if tuple((key2,'FG')) in colourescape or tuple((key2,'BG')) in colourescape:
+                      print ('Colour:',key2,key[1],'-',config[key[0]],':',colourescape[key],'Example Text',colourescape['off'])
+                      already_shown.append(key[0])
 
-#    if config['debug'] and config['verbose']: print(colourescape)
+#       for key in colourescape:
+#           print (f"Colour: {key}: {colourescape[key]}Example Text{colourescape['off']}")
+    # print(colourescape)
 
 # Create a dictionary of the holidays loaded, if more than one holiday per date we create a
 # sub dictionary
