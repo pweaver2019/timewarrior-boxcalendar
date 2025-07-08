@@ -132,6 +132,13 @@ The text "Calendar for June, 2025" and the text "List of special days" would be 
 The text "List of special days" and the dates below only appear if there are special days and verbose is on.
 The horizontal line of '-' characters will actually be underlines instead of the dashes shown here.
 
+## showcolours.py
+
+I createa a little utility to dump out the colours in a timewarrior config without needing to turn on debug mode.
+Just copy it to your extensions directory, chmod +x showcolours.py, timew showcolours.
+
+![image](https://github.com/user-attachments/assets/1596f66c-ef72-4d2b-adb6-c025e3b02f85)
+
 ## Notes
 
 When you pass the report a range the report will create the calendar for the first year/month it finds in the range.
