@@ -132,11 +132,34 @@ def convert_colour(ground,colour):
     elif colour.startswith('grey'):
         number = int(colour[4:]) + 232
         colour = f"\033[{ground};5;{number}m"
+    elif colour == 'bright':
+        colour = 'bright'
     else:
         print(f"Unknown color format: {colour}")
         return None
 
     return colour
+
+def check_bright(colourescape):
+
+    for key in colourescape:
+       if colourescape[key].find('bright') > -1:
+           colourescape[key].replace('bright','')
+           temp = colourescape[key].split(';')
+           newescape = ''
+           for key2 in temp:
+               if key2[1:2] == 'm':
+                   colour = int(key2[0:1])
+                   if colour < 8:
+                       colour = colour + 8
+                       newescape = newescape + str(colour) + key2[1:] + ';'
+               else:
+                   newescape += key2 + ';'
+           if newescape[-1:] == ';': newescape=newescape[:-1]
+           colourescape[key] = newescape.replace('bright','')
+
+    return colourescape
+
 
 # The timewarrior guidelines say that 'on','1','yes','y',and 'true' are all
 # treated as True, all other values are False.
@@ -223,6 +246,8 @@ def main():
                         colourescape[key,ground] += convert_colour(ground,colour)
                     else:
                         colourescape[key,ground] = convert_colour(ground,colour)
+      check_bright(colourescape)
+
 
 # Dump out the colours used in this theme
     if config['debug'] and config['verbose']:
