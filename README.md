@@ -126,6 +126,7 @@ List of special days
 2025-06-30 Today
 ```
 
+In this example reports.boxcalendar.start was set to 6 and reports.boxcalendar.weekdays was set to Mon,Tue,Wed,Thu,Fri,Sat,Sun.
 On a terminal there would be theme.colors.holiday highlighting on the 24th, 28th.
 The 30th would be highlighted based on whatever is in theme.colors.today.
 The text "Calendar for June, 2025" and the text "List of special days" would be highlighted based on whatever is in theme.colors.label.
