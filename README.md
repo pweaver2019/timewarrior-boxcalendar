@@ -14,7 +14,7 @@ cp boxcalendar.py ~/.timewarrior/extensions/boxcalendar.py
 chmod +x ~/.timewarrior/extensions/boxcalendar.py
 ```
 
-The command timew extensions will show if if you copied it correctly
+The command timew extensions will show the extension name and status if you copied it correctly
 
 If you name the report anything other than boxcalendar.py then use your new name in the examples below.
 For example, if you name it mycalendar.py then use "reports.mycalendar.weekdays" instead of "reports.boxcalendar.weekdays."
